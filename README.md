@@ -41,8 +41,8 @@ devflow-reflector/
 │
 ├── backend/
 |   ├── config/
-|   ├── workspaces.json        # Configuration file listing root directories to scan (e.g., Desktop, Projects, Downloads)
-│   └── projects.json          # Auto-generated list of detected/tracked projects (repositories)
+|   |   ├── workspaces.json        # Configuration file listing root directories to scan (e.g., Desktop, Projects, Downloads)
+│   |   └── projects.json          # Auto-generated list of detected/tracked projects (repositories)
 │   ├── main.py                # Entry point for the API server (e.g., Flask/FastAPI)
 |   ├── __init__.py            # (Optional) Marks the backend as a Python package
 │   ├── git_parser.py          # Module to parse local Git logs
