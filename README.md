@@ -40,12 +40,20 @@ Below is a suggested directory structure for the MVP. This structure separates b
 devflow-reflector/
 │
 ├── backend/
-│   ├── main.py             # Entry point for the API server (e.g., Flask/FastAPI)
-│   ├── git_parser.py       # Module to parse local Git logs
-│   ├── db_manager.py       # Handles local data storage (SQLite/JSON)
-│   ├── analytics.py        # Processes commit data to generate insights
-│   ├── requirements.txt    # List of Python dependencies
-│   └── tests/              # Minimal tests for backend functionality
+|   ├── config/
+|   ├── workspaces.json        # Configuration file listing root directories to scan (e.g., Desktop, Projects, Downloads)
+│   └── projects.json          # Auto-generated list of detected/tracked projects (repositories)
+│   ├── main.py                # Entry point for the API server (e.g., Flask/FastAPI)
+|   ├── __init__.py            # (Optional) Marks the backend as a Python package
+│   ├── git_parser.py          # Module to parse local Git logs
+|   ├── projects_manager.py    # Module to load and query project configurations from projects.json
+|   ├── github_api.py          # Module to fetch GitHub data (repository info, pull requests, etc.)
+│   ├── db_manager.py          # Handles local data storage (SQLite/JSON)
+│   ├── analytics.py           # Processes commit data to generate insights
+|   ├── file_watcher.py        # Module that uses watchdog to monitor file system changes for local code modifications
+|   ├── scanner.py             # Module that scans the specified workspace directories for new Git repositories and updates projects.json
+│   ├── requirements.txt       # List of Python dependencies
+│   └── tests/                 # Minimal tests for backend functionality
 │        └── test_sample.py
 │
 ├── frontend/
